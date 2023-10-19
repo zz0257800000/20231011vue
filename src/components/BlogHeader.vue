@@ -23,6 +23,7 @@ export default {
         <RouterLink class="customLink1 " to="/">Archive</RouterLink>
       </div>
       <input type="text" placeholder="Search" class="BlogHeaderSearch">
+      <i class="fa-solid fa-magnifying-glass"></i>
     </div>
     <br><br>
     <div class="BlogContents">
@@ -91,6 +92,8 @@ $mainColor1: white;
     .BlogHeaderLink {
       display: flex;
       justify-content: space-around;
+      position: relative;
+      
 
     }
 
@@ -99,7 +102,13 @@ $mainColor1: white;
       font-size: 16pt;
       width: 15vw;
       margin-left: 40vw;
+      position: relative;
+  left: 10%;
     }
+ .fa-magnifying-glass{
+  position: relative;
+  right: 2%;
+ }
   }
 
   .BlogContents {

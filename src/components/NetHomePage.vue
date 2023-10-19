@@ -29,6 +29,12 @@ export default {
         <RouterLink class="customLink" to="/Fandi/FandiHome">房地産</RouterLink>
         
     </div>
+    <div class="Header0">
+        <RouterLink class="customLink" to="/components/BOKELAIHeader">博客來網站</RouterLink>
+        <RouterLink class="customLink" to="/">機車網站</RouterLink>
+        
+        
+    </div>
 </template>
 
 

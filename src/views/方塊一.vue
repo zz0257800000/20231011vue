@@ -14,7 +14,6 @@ export default {
 }
 </script>
 <template>
-    <img src="../components/NetHomePage.vue" alt="">
      <NetHomePage/>
 
 <div class="header">

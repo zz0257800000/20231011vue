@@ -45,9 +45,9 @@ const router = createRouter({
     },
 
     {
-      path: '/Blog',
-      name: 'Blog',
-      component: () => import('../views/Blog.vue')
+      path: '/components/BlogHeader',
+      name: '/components/BlogHeader',
+      component: () => import('../components/BlogHeader.vue')
     },
 
     {
@@ -84,6 +84,11 @@ const router = createRouter({
       path: '/Fandi/fanlist',
       name: '/Fandi/fanlist',
       component: () => import('../views/Fandi/fanlist.vue')
+    },
+    {
+      path: '/components/BOKELAIHeader',
+      name: '/components/BOKELAIHeader',
+      component: () => import('../components/BOKELAIHeader.vue')
     },
   ]
 })
