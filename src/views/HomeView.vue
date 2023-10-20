@@ -104,7 +104,7 @@ export default {
          
         
 
-          <RouterLink class="routerItemWhite" @mouseover="playSound" to="/components/BlogHeader">
+          <RouterLink class="routerItemWhite" @mouseover="playSound" to="/Blog/BlogAbout">
                     <div class="midTop2">
           <br>ブログ </div></RouterLink>
 

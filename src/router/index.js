@@ -90,6 +90,21 @@ const router = createRouter({
       name: '/components/BOKELAIHeader',
       component: () => import('../components/BOKELAIHeader.vue')
     },
+    {
+      path: '/components/BlogHeader',
+      name: '/components/BlogHeader',
+      component: () => import('../components/BlogHeader.vue')
+    },
+    {
+      path: '/Blog/BlogAbout',
+      name: '/Blog/BlogAbout',
+      component: () => import('../views/Blog/BlogAbout.vue')
+    },
+    {
+      path: '/components/bg2',
+      name: '/components/bg2',
+      component: () => import('../components/bg2.vue')
+    },
   ]
 })
 

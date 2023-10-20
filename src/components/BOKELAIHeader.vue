@@ -51,7 +51,7 @@ export default {
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="../../public/博客來圖片/1.jpg " class="d-block w-100 ">
+      <img src="../../public/博客來圖片/1.jpg " class="d-block w-100 " height="800">
       <div class="carousel-caption d-none d-md-block">
         <h5></h5>
       </div>

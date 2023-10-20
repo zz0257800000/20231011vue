@@ -2,9 +2,19 @@
 export default {
   data() {
     return {
-
+      categories: [],
     }
-  }
+  },
+  created() {
+    // 模擬從後端或API取得資料
+    // 請以實際的資料獲取邏輯取代此處的示範
+    this.categories = [
+      { id: 1, name: "科技", postCount: 10 },
+      { id: 2, name: "旅遊", postCount: 7 },
+      { id: 3, name: "美食", postCount: 15 },
+      // 根據需求添加更多分類及貼文數量
+    ];
+  },
 }
 
 
@@ -18,7 +28,7 @@ export default {
     </div><br>
     <div class="BlogHeader">
       <div class="BlogHeaderLink">
-        <RouterLink class="customLink1 " to="/">About</RouterLink>
+        <RouterLink class="customLink1 " to="/Blog/BlogAbout">About</RouterLink>
         &nbsp; &nbsp;&nbsp; &nbsp;
         <RouterLink class="customLink1 " to="/">Archive</RouterLink>
       </div>
@@ -29,7 +39,20 @@ export default {
     <div class="BlogContents">
       <div class="BlogLeft">
         <div class="BlogLeftTOP">
-
+          <div class="BlogLeftTopPic">
+            <img src="../../public/bikeWeb/1.jpg" height=150px>
+          </div>
+          <h3>武弄組</h3>
+          <h5>B-boy + Developer</h5>
+          <h6>Yunlin, Taiwan</h6>
+          <h3>xxx Posts</h3>
+          <hr>
+          <div class="BlogLeftTopLink">
+           <a href="https://github.com/zz0257800000?tab=repositories"> <i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/zz025784/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/kami.siyu"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.youtube.com/channel/UCIgA5TcL1O_WDHc-CIBk0Tg"><i class="fa-brands fa-youtube"></i></a>
+          </div>
         </div>
 
         <div class="BlogLeftBetween">
@@ -41,11 +64,26 @@ export default {
       </div>
 
       <div class="BlogBetween">
-        <h2>Post</h2>
+        
 
       </div>
       <div class="BlogRight">
-        <h4>Categories</h4>
+        <h2>Categories</h2>
+       <hr>
+        <div>
+   <h3>
+    <ul>
+      
+      <li> <RouterLink class=" " to="/Blog/BlogAbout">台南産業尖兵上課練習</RouterLink>
+      </li>
+      <li v-for="category in categories" :key="category.id">
+        <router-link :to="`/posts/${category.id}`">{{ category.name }}</router-link>
+        <span>({{ category.postCount }} 篇貼文)</span>
+      </li>
+   </ul></h3>
+  </div>
+
+
       </div>
 
     </div>
@@ -66,10 +104,11 @@ $mainColor1: white;
 }
 
 .BlogpPage {
+  z-index: -2;
   margin: 0;
   background-color: rgb(243, 243, 243);
   width: 100vw;
-  height: 500vh;
+  height: 200vh;
 
   .BlogTitle {
     .BlogTitle1 {
@@ -117,18 +156,38 @@ $mainColor1: white;
     justify-content: space-between;
     border: 0px solid black;
     height: 500vh;
-    margin: 100px;
+   
 
     .BlogLeft {
-
+      position: relative;
+     left: 5%;
       height: 200vh;
       width: 20vw;
       border: 0px solid black;
 
       .BlogLeftTOP {
         background-color: $mainColor1;
-        height: 50vh;
+        height: 58vh;
         width: 340px;
+      
+        .BlogLeftTopPic{
+          height: 25vh;
+          border: 0px solid black;
+          display: flex;
+            align-items: center;
+            justify-content: center;
+          img{
+            
+          border-radius: 50%;
+        }
+        }
+        .BlogLeftTopLink{
+          justify-content: space-around;
+          display: flex;
+          border: 0px solid black;
+          font-size: 30pt;
+        }
+        
 
       }
 
@@ -155,10 +214,12 @@ $mainColor1: white;
     .BlogBetween {
       height: 500vh;
       width: 45vw;
-      background-color: $mainColor1;
+     
     }
 
     .BlogRight {
+      position: relative;
+      right: 2%;
       height: 50vh;
       width: 20vw;
       border: 0px solid black;
