@@ -27,11 +27,12 @@ export default {
         <RouterLink class="customLink" to="/方塊二">方塊二</RouterLink>
         <RouterLink class="customLink" to="/disert">disert</RouterLink>
         <RouterLink class="customLink" to="/Fandi/FandiHome">房地産</RouterLink>
-        
+        <RouterLink class="customLink" to="/Expense">記帳</RouterLink>
+
     </div>
     <div class="Header0">
         <RouterLink class="customLink" to="/components/BOKELAIHeader">博客來網站</RouterLink>
-        <RouterLink class="customLink" to="/">機車網站</RouterLink>
+        <RouterLink class="customLink" to="/bikePage/bikeHome">機車網站</RouterLink>
         
         
     </div>

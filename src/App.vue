@@ -19,7 +19,7 @@ import{ RouterLink,RouterView } from 'vue-router'
 .content{
 
   width: 100vw;
-  height: 365vh;
+  height: 100vh;
   border: 0px solid rgb(255, 19, 19);
   text-align: center;
 }

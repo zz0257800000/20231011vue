@@ -15,7 +15,7 @@ export default {
 </script>
 <template >
          <NetHomePage/>
-
+<div class="body">
 
     <div class="cakeOne page">
         <div class="cakeTop">
@@ -101,15 +101,16 @@ export default {
     </div>
     <div class="cakeFooter page">
 <h3>Copy@2023 by kou</h3>
-    </div>
+    </div></div>
 </template>
 <style lang="scss" scoped>
 hr {
     border: 2px solid black;
 }
 
-body {
+.body {
     margin: 0;
+    background-color: rgb(254, 255, 218);
 }
 
 .page {

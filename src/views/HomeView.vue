@@ -9,7 +9,7 @@ export default {
       isZoomed: false,
       currentDate: new Date().toLocaleString(),
       musicSource: '../../public/mp3/fripSide - double Decades(Audio).mp3', // 歌曲文件的路径，请根据实际情况修改路径
-
+      isLoading: true, // 默认情况下显示加载状态
       currentSongIndex: 0,
       songs: [
         {
@@ -40,6 +40,7 @@ export default {
   computed: {
     currentSong() {
       return this.songs[this.currentSongIndex];
+      
     },
   },
   methods: {
@@ -51,11 +52,11 @@ export default {
     },
     playSound() {
       const audio = new Audio("../../public/mp3/keypress.mp3"); // 替换为您的声音文件路径
-      audio.play();
+      audio.play();  //聲音按鈕
     },
-     playMusic() {
-      this.$refs.audioPlayer.play();
-    },
+    //  playMusic() {
+    //   this.$refs.audioPlayer.play();
+    // }, 自動放歌
     
     playPreviousSong() {
       this.currentSongIndex = (this.currentSongIndex - 1 + this.songs.length) % this.songs.length;
@@ -67,7 +68,17 @@ export default {
       this.$refs.audioPlayer.load();
       this.$refs.audioPlayer.play();
     },
+    
+    
+    
   },
+  mounted() {
+    // 模拟加载过程，实际中可以使用异步操作或axios请求
+    setTimeout(() => {
+      this.isLoading = false; // 加载完成后隐藏加载状态
+    }, 5000); // 模拟加载需要3秒
+  },
+  
 };
 
 
@@ -78,19 +89,35 @@ export default {
 </script>
 
 <template>
-  <div class="userPage">
-    <div class="bg2-container" >
-    <!-- <bg2></bg2> -->
-
+     <div class="startloading ">
+  
+    <div v-show="!isLoading">
+      
     </div>
+  
+    <div v-show="isLoading">
+      
+      <div class="loading-spinner">
+       <div class="spinner">
+       </div>
+        <p>Loading...</p>  
+        
+
+      </div>
+
+      
+    </div>
+  </div> 
+    
+  <div class="userPage"> 
+  
     <div class="userLeft">
       <div class="userLeftTop">
         <div class="date-display">
-          <p>{{ currentDate }}</p>
+          <h1>{{ currentDate }}</h1>
         </div>
       </div>
       <div class="userLeftDown">
-
       </div>
     </div>
     <div class="userMid">
@@ -191,6 +218,45 @@ export default {
 </template>
 <style lang="scss" scoped>
 $mainColor:#2f8fd9;
+
+.startloading {
+    position: fixed;
+    display: flex; 
+    align-items: center; 
+    z-index: 999; /* 使遮罩层显示在最前面 */
+    background-color: white;
+    width: 100vw;
+    justify-content: center;
+
+    .loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 24pt;
+
+}
+
+.spinner {
+  border: 4px solid rgba(12, 12, 12, 0.3);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  animation: spin 4s linear infinite;
+  background-image: url(../../public/首頁/6.gif);
+
+}
+    
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 a {
   text-decoration: none;
 }.routerItemWhite{
@@ -215,20 +281,9 @@ a {
   border: 0px solid black;
   height: 100vh;
   width: 100vw;
-  
-  .bg2-container {
-    background-color: rgb(255, 255, 255); /* 透明背景 */
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-  width: 100vw; /* 设置高度为 100% */
-    z-index:-1; /* 确保 bg1 在最底层 */
 
-    display: flex; 
-    align-items: center; 
-    
-}
+  
+  
  
 
   .userLeft {
@@ -333,7 +388,6 @@ a {
 
 
     .midBetween {
-      
       height: 46vh;
       margin-top: 10px;
       display: flex;
@@ -347,9 +401,10 @@ a {
       }
 
       img {
+        margin: 0;
 
         width: 20vw;
-        height: 45vh;
+        height: 363px;
         border: 2px solid rgb(6, 6, 6);
 
       }

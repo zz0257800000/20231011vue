@@ -4,7 +4,16 @@ export default{
         return{
            
 }
-}
+},
+mounted() {
+    // 引用音乐播放器元素
+    const musicPlayer = this.$refs.musicPlayer;
+    musicPlayer.currentTime = 69; // 1分 = 60秒 + 9秒 = 69秒
+    musicPlayer.volume = 0.5;
+
+    // 开始播放音乐
+    musicPlayer.play();
+  }
 }
 
 
@@ -13,7 +22,7 @@ export default{
      <RouterLink class="customLink fs-1" to="/">ホームページ</RouterLink>
 
     <!-- <img src="../../public/mp3/mp3圖/fripSide - double Decades(Audio).jpg" alt=""> -->
-      
+    
       <div class="CarouselTeam page">
       <div class="Carousel1 " alt="輪播">
         <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
@@ -61,11 +70,13 @@ export default{
       </button>
     </div>
     </div>
-    <div class="music-player">
-    <h1>Music-player</h1>
-      <audio  ref="audioPlayer" :src="musicSource"   controls autoplay ></audio>    
-        
-      </div>
+    <div>
+    <!-- 音乐播放器 -->
+    <audio ref="musicPlayer" autoplay loop controls>
+      <source src="../../public/mp3/fripSide - endless entropy (Audio).mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
     
       </div>
       <div class="content0 page">
@@ -172,7 +183,7 @@ export default{
       text-decoration: none;
     }
     .page {
-      width: 97vw;
+      width: 98vw;
       margin: 10px;
     }
     
@@ -206,13 +217,13 @@ export default{
       height: 150vh;
       display: flex;
       justify-content: space-between;
-      border: 0px solid rgb(6, 6, 6);
+      border: 1px solid rgb(6, 6, 6);
       
     .left0{
     
     
     height: 600px;
-      border: 0px solid rgb(6, 6, 6);
+      border: px solid rgb(6, 6, 6);
     .p0{
       height: 424px;
       border: 2px solid rgb(6, 6, 6);
@@ -230,11 +241,13 @@ export default{
     }
     
     .between0{
-      margin: 10px;border: 0px solid rgb(6, 6, 6);
+      margin: 10px;
+      border: 0px solid rgb(6, 6, 6);
+      width: 115vh;
+
     .top0{
       border: 2px solid rgb(6, 6, 6);
       height: 202px;
-      width: 103vh;
       display: flex;
       .pb0{
       border: 2px solid rgb(6, 6, 6);
@@ -252,12 +265,12 @@ export default{
     }
     }
     .down0{
-      width: 100vh;
       margin: 10px;
       height: 90vh;
       border: 0px solid rgb(6, 6, 6);
       .nineArea{
-        
+        border: 0px solid black;
+
         display: flex;
         flex-wrap: wrap;
         
@@ -265,12 +278,15 @@ export default{
           flex-direction: column;
           background-color: white;
           transition: 0.3s;
+          width: 24vw;
+          font-size: 20pt;
+
         &:hover{
       transform: scale(1.2, 1.2);
     }
           margin: 2px;
-          width: 232px;
-      height: 210px;
+          width: 280px;
+      height: 220px;
       border: 2px solid black;
       &:hover{
         color: red;  
@@ -288,6 +304,8 @@ export default{
     }
     
     .right0{ 
+      border: 0px solid rgb(6, 6, 6);
+    width: 18vw;
       hr {    
             height: 4px; /* 设置水平线的高度，这会增加其厚度 */
           background-color: #000000; /* 设置水平线的颜色 */

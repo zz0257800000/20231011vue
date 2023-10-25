@@ -105,6 +105,16 @@ const router = createRouter({
       name: '/components/bg2',
       component: () => import('../components/bg2.vue')
     },
+    {
+      path: '/Expense',
+      name: 'Expense',
+      component: () => import('../views/Expense.vue')
+    },
+    {
+      path: '/bikePage/bikeHome',
+      name: '/bikePage/bikeHome',
+      component: () => import('../views/bikePage/bikeHome.vue')
+    },
   ]
 })
 
